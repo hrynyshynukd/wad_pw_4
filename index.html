@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f5ef">
+  <meta name="description" content="ARTBOARD — добірка ніжних абстрактних візуальних робіт.">
+  <title>ARTBOARD | Visual art gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#gallery" aria-label="ARTBOARD — до галереї">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">ARTBOARD</span>
+    </a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Увімкнути темну тему">
+      <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.2 15.1A8.2 8.2 0 0 1 8.9 3.8 8.4 8.4 0 1 0 20.2 15.1Z"></path>
+      </svg>
+      <span class="theme-toggle-label">Тема</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="gallery-section" aria-label="Галерея цифрового мистецтва">
+      <div class="gallery" id="gallery">
+      </div>
+      <p class="sr-only" id="gallery-status" aria-live="polite"></p>
+    </section>
+
+    <section class="feedback-section" aria-labelledby="feedback-heading">
+      <div class="feedback-copy">
+        <p class="eyebrow">ЗВОРОТНИЙ ЗВ’ЯЗОК</p>
+        <h2 id="feedback-heading">Поділися враженнями</h2>
+        <p>Кілька слів про галерею — і твій відгук з’явиться нижче.</p>
+      </div>
+
+      <form class="feedback-form" id="feedback-form" novalidate>
+        <div class="form-field">
+          <label for="feedback-name">Твоє ім’я</label>
+          <input id="feedback-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="40" required placeholder="Наприклад, Марія">
+          <small class="field-error" id="name-error"></small>
+        </div>
+        <div class="form-field">
+          <label for="feedback-message">Відгук</label>
+          <textarea id="feedback-message" name="message" rows="3" minlength="5" maxlength="400" required placeholder="Що тобі сподобалося?"></textarea>
+          <div class="field-meta">
+            <small class="field-error" id="message-error"></small>
+            <small class="character-count" id="character-count">0 / 400</small>
+          </div>
+        </div>
+        <button class="submit-button" type="submit">Надіслати відгук <span aria-hidden="true">↗</span></button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="feedback-list" id="feedback-list" aria-live="polite" aria-label="Опубліковані відгуки"></div>
+    </section>
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Повернутися нагору">↑</button>
+
+  <footer class="site-footer">
+    <span>ARTBOARD</span>
+    <span class="footer-note">A little space for visual inspiration</span>
+    <span class="connection-status" id="connection-status" aria-live="polite">Перевірка з’єднання…</span>
+  </footer>
+
+  <dialog class="art-dialog" id="art-dialog" aria-label="Перегляд роботи">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="Закрити перегляд">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+    </button>
+    <div class="dialog-layout">
+      <div class="dialog-artwork">
+        <img id="dialog-image" src="" alt="">
+      </div>
+      <aside class="dialog-info">
+        <p class="eyebrow">ARTBOARD / VISUAL STUDY</p>
+        <h1 id="dialog-title">Soft Bloom</h1>
+        <p class="dialog-description" id="dialog-description">
+          М'які форми, розсіяне світло та пастельні відтінки створюють спокійну абстрактну композицію.
+        </p>
+        <div class="tag-list" id="dialog-tags" aria-label="Теги роботи"></div>
+        <button class="like-button" id="like-button" type="button" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.9a5.4 5.4 0 0 0-7.6 0L12 6.1l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.3 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"></path></svg>
+          <span id="like-label">Подобається</span>
+          <span class="like-count" id="like-count">0</span>
+        </button>
+        <p class="dialog-index" id="dialog-index"></p>
+      </aside>
+    </div>
+  </dialog>
+</body>
+</html>
